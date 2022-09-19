@@ -27,6 +27,24 @@ def using_filter():
     print(f"{filter(lambda w: len(w) > 7, words) = }")
 
 
+def get_max(a_list):
+    maximum = None
+    first = False
+    for value in a_list:
+        if not first:
+            maximum= value
+            first= True
+        if value > maximum:
+            maximum = value
+            pass
+    return maximum
+
+
+a_list = [1,7,9,22]
+my_max=get_max(a_list)
+
+print(f"my_max")
+
 def main():
     using_map()
     using_map_and_lambda()

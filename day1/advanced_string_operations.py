@@ -5,7 +5,8 @@ import textwrap
 
 
 def print_5s():
-    sssss = "整理、 整頓、 清楚、 清潔、 しつけ"
+    sssss =  '私のレンズ豆は悪くなった'
+    #sssss = 'se me han puesto malas las lentejas'
     print(sssss)
     print(f"{len(sssss) = }")
     sssss_bytes = sssss.encode('utf-8')
@@ -159,12 +160,17 @@ def string_format_minilanguage():
 """)
 
 
+
+def get_distance():
+
+
 def main():
+
     # print_5s()
     # working_with_bytes()
     # print_triple_quoted()
     # string_search('who')
-    # string_is_properties(input())
+    #string_is_properties(input('Las lentejas se me han puesto malas'))
     # slicing_and_dicing_strings(input())
     # string_method_formatting(input())
     # string_format_minilanguage()
