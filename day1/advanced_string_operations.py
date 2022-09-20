@@ -161,9 +161,14 @@ def string_format_minilanguage():
 
 
 
-def get_distance():
-
-
+#def get_distance(string):
+    #split_string = string.split('|')
+    #x1=float()
+    #y1=float()
+    #x2=float()
+    #y2=float()
+    #distance = ((x2-x1 **2) + (y2-y1)**2)**(1/2)
+    ##return distance
 def main():
 
     # print_5s()
@@ -172,8 +177,10 @@ def main():
     # string_search('who')
     #string_is_properties(input('Las lentejas se me han puesto malas'))
     # slicing_and_dicing_strings(input())
-    # string_method_formatting(input())
-    # string_format_minilanguage()
+    # string_method_formatting(input('buenos dias hoy me encuentro bien'))
+    # string_format_m
+    # inilanguage()
+    # get_distance('violet_blue|convert|red|6.3327|9.4423|113.3428|7.3298|5.3353|9.9283|over|all')
     return 0
 
 

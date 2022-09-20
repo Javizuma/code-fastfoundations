@@ -5,6 +5,7 @@ def working_with_gzip_files():
     import gzip
     # read
     with gzip.open(
+
             "/Users/paulkorir/PycharmProjects/code-fastfoundations/day2/dir1/dir3/dir4/our_deepest_fear.txt.gz"
     ) as g:
         text = g.read()
@@ -75,12 +76,57 @@ def compressing_binary_data():
     data2 = struct.unpack(f'<10f', bin_data2)
     print(f"{data2 = }")
 
+    str_data = ','.join(map(str, data))  # convert numbers to strings with commas between # map data to string function
+    print(f"str_data:     [{len(str_data)} bytes]\n\t* {str_data[:100]}...")
+    print(f"bin_data:     [{len(bin_data)} bytes]\n\t* {bin_data[:100]}...")
+    # zip_bin_data = zlib.compress(bin_data)
+    # print(f"zip_bin_data: [{len(zip_bin_data)} bytes]\n\t* {zip_bin_data[:100]}...")
+
+
+def convert_gtf_to_gz():
+    import gzip
+    with open('Homo_sapiens.GRCh38.107.shuffled_and_truncated.gtf') as f,gzip.open('Homo_sapiens.GRCh38.107.shuffled_and_truncated.gtf.gz', 'wb') as g:
+        for row in f:
+            g.write(row.encode('utf-8'))
+
+    with gzip.open('Homo_sapiens.GRCh38.107.shuffled_and_truncated.gtf.gz') as g:
+        for row in g:
+            print(row)
+
+    import pathlib
+    uncompressed_path= pathlib.Path('Homo_sapiens.GRCh38.107.shuffled_and_truncated.gtf')
+    print(f'{uncompressed_path.stat() =}')
+    print(f'{uncompressed_path.stat().st_size =}')
+    compressed_path = pathlib.Path('Homo_sapiens.GRCh38.107.abinitio.gtf')
+
+def binary_float_and_ints():
+    import struct
+    import random
+    float_data =[random.random() for _ in range(1000)]
+    int_data = [random.randint(0, 200) for _ in range(1000)]
+    bin_data = struct.pack('<1000i',*int_data)
+    bin_data += struct.pack("<1000f",*float_data)
+    print(len(bin_data))
+    return bin_data
+
+def revert_to_actual_from_binary(bin_data):
+    import struct
+    int_data = struct.unpack("<1000i", bin_data[:4000])
+    print(f"{int_data[10]}")
+    print(f"{len(bin_data[4001:]) = }")
+    float_data = struct.unpack("<1000f", bin_data[4000:])
+    print(f"{float_data[-10:]}")
+
+
 
 def main():
     # working_with_gzip_files()
     # read_json_file()
-    working_with_binary_data()
-    compressing_binary_data()
+    # working_with_binary_data()
+    #compressing_binary_data()
+    #convert_gtf_to_gz()
+    # bin_data= binary_float_and_ints()
+    # revert_to_actual_from_binary(bin_data)
     return 0
 
 

@@ -8,7 +8,7 @@ import time
 
 def simplest_way():
     process = subprocess.run(
-        shlex.split("sleep 10")
+        shlex.split("sleep") #
     )
     print(f"{process = }")
     print(f"{process.args = }")
@@ -22,7 +22,7 @@ def create_subprocess():
     print(f"{os.getpid() = }")  # the process id for this module's process
     process = subprocess.Popen(
         shlex.split(
-            "python /Users/paulkorir/PycharmProjects/code-fastfoundations/day2/"
+            "python3 /Users/javier821/PycharmProjects/code-fastfoundationsJAVI/day2/"
             "process_control/simple_task.py"
         ),
         stdin=subprocess.PIPE,  # necessary to communicate the input value
@@ -55,9 +55,20 @@ def stop_subprocess():
     print(f"{stderr = }")
     print(f"{process.returncode = } 😵")  # exit code
 
+def task1():
+    process = subprocess.run(
+        shlex.split("sleep")  #
+    )
+    print(f"{process = }")
+    print(f"{process.args = }")
+    print(f"{process.returncode = }")
+    print(f"{process.stdout = }")
+    print(f"{process.stderr = }")
+
+
 
 def main():
-    simplest_way()
+    # simplest_way()
     # create_subprocess()
     # stop_subprocess()
     return 0

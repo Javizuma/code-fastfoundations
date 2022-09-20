@@ -15,10 +15,10 @@ def writing_to_text_files():
         "Power to do evil... or power to do good.",
         "Power itself is not evil.",
         "So knowledge itself is not evil.",
-        "― Veronica Roth, Allegiant",
+        "― Veronica Roth, Allegiant ",
     ]
     with open("power_quote.txt", 'w') as f:
-        f.writelines(lines_of_text)
+        f.writelines(map(lambda S: S + '\n',  lines_of_text))
     with open("power_quote.txt") as f:
         print(f.readlines())
 
@@ -53,10 +53,44 @@ def parsing_text_files():
             print(cols)
 
 
+def task1():
+    data = range(10)
+    with open('file.txt', 'w') as f:
+        for d in data:
+            f.write(str(d) + '\n')
+
+
+def task2():
+    import pathlib
+    p = pathlib.Path("/home/javier821/PycharmProjects/code-fastfoundationsJAVI/day2/dir1/dir3/dir5")
+    p.mkdir(parents=True, exist_ok=True)
+    with open('/home/javier821/PycharmProjects/code-fastfoundationsJAVI/day2/dir1/dir3/dir5/random.txt', 'w') as f:
+        f.write('English is my passion')
+
+def task3()
+    with open('Homo_sapiens.GRCh38.107.abinitio.gtf', 'w') as f:
+        for lines in f:
+            if '#'
+                pass
+            else:
+                new_file= open('/home/javier821/PycharmProjects/code-fastfoundationsJAVI/day2/dir1/dir3/dir5/random.txt','w')
+                f.write('English is my passion')
+
+
+
+def task4():
+    data = range(10)
+    with open('file.txt', 'w') as f:
+        for d in data:
+            f.write(str(d) + '\n' )
+
+
 def main():
     # writing_to_text_files()
     # creating_and_modifying_paths()
     # parsing_text_files()
+    # task4()
+    task2()
     return 0
 
 

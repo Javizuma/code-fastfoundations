@@ -31,7 +31,7 @@ def reading_file_contents():
 
 
 def navigating_files():
-    with open("butterfly.txt") as f:
+    with open("butterfly.txt") as f: #where f is how we'll call the file from now on so we don't have to write the longer name
         # first let's read everything
         print(f"{f.read() = }")
         # try and read again... nothing
@@ -98,6 +98,37 @@ def useful_path_operations():
         print(f"\t* {path_object.name:<30} ==> {path_object.parent}")
 
 
+def iteration_over_file_contents():
+    with open('think_different.txt') as f:
+        for row in f:
+            print(row.strip())        #we have to add the strip so the lines do not appear too separated
+
+
+def  reading_wagata():
+    with open('wagata.txt', encoding='utf-32') as f:
+        print(f.read())
+
+
+def print_number_of_rows(filename, lines=10):
+    # slicing
+    with open(filename) as f:
+      lines_read = f.readlines()[:lines]
+      print(lines_read)
+      print(len(lines_read))
+
+def reading_socrates():
+    import pathlib
+    my_path = pathlib.Path('dir1/dir2/socrates.txt')
+    with my_path.open() as f:
+        print(f.read())
+
+def read_hidden():
+    import pathlib
+    my_path = pathlib.Path("~/") # glob for all hidden files in user dir#
+    for fn in my_path.expanduser().glob(".*"):
+        print(fn)
+
+
 def main():
     # opening_and_closing_files()
     # reading_file_contents()
@@ -105,7 +136,13 @@ def main():
     # navigating_files()
     # working_with_paths()
     # testing_paths()
-    useful_path_operations()
+    # useful_path_operations()
+    # iteration_over_file_contents()
+    # print_number_of_rows('paradoxical.txt')
+    # reading_socrates()
+    # read_hidden()
+
+
     return 0
 
 
