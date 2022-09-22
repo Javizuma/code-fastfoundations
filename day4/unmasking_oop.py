@@ -2,7 +2,6 @@ import math
 import os
 import sys
 
-
 class Circle:
     units = 'cm'  # all circles will have the same units
 
@@ -57,11 +56,12 @@ class Rectangle:
         return math.sqrt(self.width**2 + self.height**2)
 
     def bounding_box(self):
-        return(   circle.position[0] - rectangle.radius,
-        circle.position[1] - rectangle.radius,
-        circle.position[0] + rectangle.radius,
-        circle.position[1] + rectangle.radius
+        return(   circle.position[0] - rectangle.height ,
+        rectangle.position[1] - rectangle.width,
+        rectangle.position[0] + rectangle.height,
+        rectangle.position[1] + rectangle.width
         )
+
 
 
 class Canvas:
@@ -70,8 +70,10 @@ class Canvas:
         self.length=lenght
 
 class Text:
-    def __init__(self, text, position(0,0), colour = 'black' ):
+    def __init__(self, text, position=(0,0), colour = 'black' ):
         self.text= text
+        self.position = position
+        self.colour = colour
 
 
 
@@ -99,7 +101,6 @@ def main():
     #canvas = Canvas(1200, 780)
     #canvas.mystery_method()
     #turtle.done()
-
     return os.EX_OK
 
 
