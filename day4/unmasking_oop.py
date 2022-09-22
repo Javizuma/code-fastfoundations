@@ -23,10 +23,56 @@ def area(circle):
 def arc_length(circle, angle, degrees=False):
     """Function to compute the arc length l for the angle provided"""
 
-    return  math.pi * circle.radius *2 * (angle / 2*math.pi )
+    if degrees==True:
+        return math.pi * circle.radius * 2 * (angle / 360)
+    if degrees==False:
+        return  math.pi * circle.radius *2 * (angle / 2*math.pi )
+    else:
+        return print('The values introduced were not in the correct format')
 
 def bounding_box(circle):
     """Function to compute the four values of the bounding box for a circle"""
+    return(
+        circle.position[0] - circle.radius,
+        circle.position[1] - circle.radius,
+        circle.position[0] + circle.radius,
+        circle.position[1] + circle.radius
+    )
+
+class Rectangle:
+    def __init__(self, width, height, position=(0, 0), fill = 'white', stroke = 'black'):
+        self.width = width
+        self.height = height
+        self.position = position
+        self.fill = fill
+        self.stroke = stroke
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.width)
+
+    def diagonal(self):
+        return math.sqrt(self.width**2 + self.height**2)
+
+    def bounding_box(self):
+        return(   circle.position[0] - rectangle.radius,
+        circle.position[1] - rectangle.radius,
+        circle.position[0] + rectangle.radius,
+        circle.position[1] + rectangle.radius
+        )
+
+
+class Canvas:
+    def __init__(self,width,lenght ):
+        self.width=width
+        self.length=lenght
+
+class Text:
+    def __init__(self, text, position(0,0), colour = 'black' ):
+        self.text= text
+
 
 
 def main():
